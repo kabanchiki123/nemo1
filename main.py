@@ -3,6 +3,7 @@ import random
 from PyQt6.QtWidgets import *
 
 import gg
+from menu import menu_window
 
 app = QApplication([])
 window = QWidget()
@@ -16,7 +17,7 @@ group = QGroupBox("Варіанти відповідей")
 answer1_btn = QRadioButton("building")
 answer2_btn = QRadioButton("apple")
 answer3_btn = QRadioButton("banana")
-answer4_btn = QRadioButton("gamno")
+answer4_btn = QRadioButton("game")
 
 
 result_lbl = QLabel("Результат")
@@ -60,17 +61,17 @@ set_quest()
 
 
 def ans_func():
-    answers[0].hade()
-    answers[1].hade()
-    answers[2].hade()
-    answers[3].hade()
+    answers[0].hide()
+    answers[1].hide()
+    answers[2].hide()
+    answers[3].hide()
     answer_btn.hide()
     result_lbl.show()
     if  answers[0].isChecked():
         result_lbl.setText("Правильно!")
 
 answer_btn.clicked.connect(ans_func)
-
+menu_btn.clicked.connect(menu_window)
 def next_func():
     gg.number += 1
     set_quest()
